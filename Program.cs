@@ -1,14 +1,19 @@
 ﻿using Blog.Models;
+using Blog.Repositories;
 using Dapper;
 using Dapper.Contrib.Extensions;
 using Microsoft.Data.SqlClient;
 
 const string connectionString = "server=localhost\\sqlexpress;database=Blog;trusted_connection=True;TrustServerCertificate=True";
+
+var connection = new SqlConnection(connectionString);
+connection.Open();
 // CreateUser();
 // ReadUser();
 // ReadUsers();
 // UPdateUser();
-DeleteUser();
+// DeleteUser();
+connection.Close();
 
 static void CreateUser()
 {
@@ -29,16 +34,14 @@ static void CreateUser()
   }
 }
 
-static void ReadUsers()
+static void ReadUsers(SqlConnection connection)
 {
-  using(var connection = new SqlConnection(connectionString))
-  {
-    var users = connection.GetAll<User>();
+  var repository = new UserRepository(connection);
+  var users = repository.Get();
 
-    foreach (var user in users)
-    {
-      Console.WriteLine(user.Name);
-    }
+  foreach (var user in users)
+  {
+    Console.WriteLine(user.Name);
   }
 }
 
