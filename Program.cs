@@ -1,5 +1,6 @@
 ﻿using Blog.Models;
 using Blog.Repositories;
+using Blog.Repository;
 using Dapper;
 using Dapper.Contrib.Extensions;
 using Microsoft.Data.SqlClient;
@@ -10,7 +11,8 @@ var connection = new SqlConnection(connectionString);
 connection.Open();
 // CreateUser();
 // ReadUser();
-// ReadUsers();
+// ReadRoles(connection);
+// ReadUsers(connection);
 // UPdateUser();
 // DeleteUser();
 connection.Close();
@@ -52,6 +54,17 @@ static void ReadUser()
     var user = connection.Get<User>(1);
 
       Console.WriteLine(user.Name);
+  }
+}
+
+static void ReadRoles(SqlConnection connection)
+{
+  var repository = new RoleRepository(connection);
+  var roles = repository.Get();
+
+  foreach (var role in roles)
+  {
+    Console.WriteLine(role.Name);
   }
 }
 
