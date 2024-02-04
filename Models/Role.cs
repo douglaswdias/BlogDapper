@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Blog.Repositories
+namespace Blog.Models
 {
   [Table("[Role]")]
   public class Role
