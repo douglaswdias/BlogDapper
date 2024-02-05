@@ -1,4 +1,5 @@
-﻿using Blog.Models;
+﻿using Blog;
+using Blog.Models;
 using Blog.Repositories;
 using Blog.Repository;
 using Blog.Screens.TagScreens;
@@ -8,14 +9,14 @@ using Microsoft.IdentityModel.Tokens;
 
 const string connectionString = "server=localhost\\sqlexpress;database=Blog;trusted_connection=True;TrustServerCertificate=True";
 
-var connection = new SqlConnection(connectionString);
-connection.Open();
+Database.Connection = new SqlConnection(connectionString);
+Database.Connection.Open();
 
 Load();
 
 
 Console.ReadKey();
-connection.Close();
+Database.Connection.Close();
 
 static void Load()
 {
