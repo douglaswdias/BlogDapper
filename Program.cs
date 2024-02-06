@@ -2,6 +2,7 @@
 using Blog.Models;
 using Blog.Repositories;
 using Blog.Repository;
+using Blog.Screens;
 using Blog.Screens.TagScreens;
 using Dapper.Contrib.Extensions;
 using Microsoft.Data.SqlClient;
@@ -12,37 +13,13 @@ const string connectionString = "server=localhost\\sqlexpress;database=Blog;trus
 Database.Connection = new SqlConnection(connectionString);
 Database.Connection.Open();
 
-Load();
+MainScreen.Load();
 
 
 Console.ReadKey();
 Database.Connection.Close();
 
-static void Load()
-{
-  Console.Clear();
-  Console.WriteLine("Meu Blog");
-  Console.WriteLine("----------------------------------------");
-  Console.WriteLine("Escolha uma opção");
-  Console.WriteLine("----------------------------------------");
-  Console.WriteLine("1 - Gestão de Usuários");
-  Console.WriteLine("2 - Gestão de Perfil");
-  Console.WriteLine("3 - Gestão de Categorias");
-  Console.WriteLine("4 - Gestão de Tags");
-  Console.WriteLine("5 - Gestão de Perfil/Usuário");
-  Console.WriteLine("6 - Gestão de Post/Tag");
-  Console.WriteLine("7 - Relatórios");
-  Console.WriteLine("----------------------------------------\n");
-  var option = short.Parse(Console.ReadLine()!);
 
-  switch (option)
-  {
-    case 4:
-      MenuTagScreen.Load();
-      break;
-    default: Load(); break;
-  }
-}
 
 
 
