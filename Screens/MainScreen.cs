@@ -1,4 +1,5 @@
 using System.Net.Mime;
+using Blog.Screens.RoleScreens;
 using Blog.Screens.TagScreens;
 
 namespace Blog.Screens
@@ -18,18 +19,32 @@ namespace Blog.Screens
       Console.WriteLine("4 - Gestão de Tags");
       Console.WriteLine("5 - Gestão de Perfil/Usuário");
       Console.WriteLine("6 - Gestão de Post/Tag");
-      Console.WriteLine("7 - Relatórios");
       Console.WriteLine("0 - SAIR");
       Console.WriteLine("----------------------------------------\n");
-      var option = short.Parse(Console.ReadLine()!);
+      var option = short.Parse(Console.ReadLine());
 
       switch (option)
       {
         case 0:
           Environment.Exit(0);
           break;
+        case 1:
+          Load();
+          break;
+        case 2:
+          MenuRoleScreen.Load();
+          break;
+        case 3:
+          Load();
+          break;
         case 4:
           MenuTagScreen.Load();
+          break;
+        case 5:
+          Load();
+          break;
+        case 6:
+          Load();
           break;
         default: Load(); break;
       }

@@ -4,6 +4,7 @@ namespace Blog
 {
   public static class Database
   {
-    public static SqlConnection Connection;
+    const string connectionString = "server=localhost\\sqlexpress;database=Blog;trusted_connection=True;TrustServerCertificate=True";
+    public static SqlConnection Connection = new(connectionString);
   }
 }
