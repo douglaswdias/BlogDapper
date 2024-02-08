@@ -1,4 +1,4 @@
-using System.ComponentModel.DataAnnotations.Schema;
+using Dapper.Contrib.Extensions;
 
 namespace Blog.Models
 {
@@ -11,13 +11,16 @@ namespace Blog.Models
     }
     public int Id { get; set; }
     public int CategoryId { get; set; }
-    public User AuthorId { get; set; }
+    public int AuthorId { get; set; }
     public string Title { get; set; }
     public string Summary { get; set; }
     public string Body { get; set; }
     public string Slug { get; set; }
+    [Write(false)]
     public DateTime CreateDate { get; set; }
+    [Write(false)]
     public DateTime LastUpdateDate { get; set; }
+    [Write(false)]
     public List<Tag> Tags { get; set; }
   }
 }
