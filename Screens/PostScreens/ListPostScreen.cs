@@ -17,7 +17,7 @@ namespace Blog.Screens.PostScreens
       MenuPostScreen.Load();
     }
 
-    static void List()
+    public static void List()
     {
       var repository = new Repository<Post>(Database.Connection);
       var posts = repository.Get();

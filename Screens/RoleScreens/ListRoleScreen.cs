@@ -17,7 +17,7 @@ namespace Blog.Screens.RoleScreens
       MenuRoleScreen.Load();
     }
 
-    static void List()
+    public static void List()
     {
       var repository = new Repository<Role>(Database.Connection);
       var roles = repository.Get();
