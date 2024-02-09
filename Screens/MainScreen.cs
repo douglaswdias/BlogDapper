@@ -2,6 +2,7 @@ using System.Net.Mime;
 using Blog.Screens.PostScreens;
 using Blog.Screens.RoleScreens;
 using Blog.Screens.TagScreens;
+using Blog.Screens.UserScreens;
 
 namespace Blog.Screens
 {
@@ -29,7 +30,7 @@ namespace Blog.Screens
           Environment.Exit(0);
           break;
         case 1:
-          Load();
+          MenuUserScreen.Load();
           break;
         case 2:
           MenuRoleScreen.Load();
