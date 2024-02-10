@@ -1,4 +1,5 @@
 using System.Net.Mime;
+using Blog.Screens.CategoryScreens;
 using Blog.Screens.PostScreens;
 using Blog.Screens.RoleScreens;
 using Blog.Screens.TagScreens;
@@ -36,7 +37,7 @@ namespace Blog.Screens
           MenuRoleScreen.Load();
           break;
         case 3:
-          Load();
+          MenuCategoryScreen.Load();
           break;
         case 4:
           MenuTagScreen.Load();
